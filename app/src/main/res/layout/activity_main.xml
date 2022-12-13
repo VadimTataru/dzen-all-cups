@@ -4,12 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="32dp"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/choice_title"
+        android:textColor="@color/text_color_1"
+        android:layout_marginEnd="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/appCompatButton"
         app:layout_constraintEnd_toStartOf="@+id/appCompatButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,14 +25,24 @@
         android:id="@+id/appCompatButton"
         android:layout_width="80dp"
         android:layout_height="40dp"
+        android:background="@drawable/button_bg"
         android:text="@string/latter"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!--Chips Starts here-->
+
+    <!--Chips Ends here-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="210dp"
         android:layout_height="80dp"
         android:text="@string/continue_btn"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
