@@ -27,7 +27,9 @@
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:background="@drawable/button_bg"
+        android:backgroundTint="@color/transparent_white"
         android:text="@string/latter"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,38 +43,175 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_hint">
 
         <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Action"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:chipCornerRadius="12dp"
-            android:text="Юмор |  + "/>
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Entry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Еда |  + "/>
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Кино |  + "/>
-
-        <com.google.android.material.chip.Chip
             style="@style/CustomChipStyle"
-            app:chipCornerRadius="12dp"
+            android:checked="true"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layoutDirection="rtl"
-            android:checked="true"
+            android:text="Юмор"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Еда"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipIcon="@drawable/ic_round_add_24"
+            android:text="Кино"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Рестораны"/>
 
         <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Прогулки |  + "/>
+            android:text="Прогулки"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            android:checked="true"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="Юмор"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Еда"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipIcon="@drawable/ic_round_add_24"
+            android:text="Кино"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Рестораны"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Прогулки"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            android:checked="true"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="Юмор"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Еда"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipIcon="@drawable/ic_round_add_24"
+            android:text="Кино"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Рестораны"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Прогулки"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            android:checked="true"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="Юмор"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Еда"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Кино"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Рестораны"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            app:chipIconEnabled="true"
+            app:checkedIconEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Прогулки"/>
 
     </com.google.android.material.chip.ChipGroup>
 
