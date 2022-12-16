@@ -15,10 +15,12 @@ import com.fox.dzenallcups.databinding.ActivityMainBinding
 import com.fox.dzenallcups.presentation.MainActivityViewModel
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.delay
+import kotlin.random.Random
+import kotlin.random.nextInt
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
-    lateinit var viewModel: MainActivityViewModel
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: MainActivityViewModel
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +31,20 @@ class MainActivity : AppCompatActivity() {
 
         createStartList()
         initButtons()
+        binding.btnContinue.isActivated = false
 
-        binding.btnContinue.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_btu_anim))
         binding.btnLatter.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_rtl_anim))
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun initButtons() {
+        viewModel.observeSelectedCategoryAmount().observe(this) {
+            if(it > 0) {
+                binding.btnContinue.isActivated = false
+                binding.btnContinue.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_btu_anim))
+            }
+        }
+
         binding.btnLatter.setOnClickListener {
             Toast.makeText(this, "Выбрать позже", Toast.LENGTH_SHORT).show()
         }
@@ -74,7 +83,15 @@ class MainActivity : AppCompatActivity() {
                 viewModel.setCheckedState(category)
             }
         }
-
         binding.chipGroup.addView(chip)
+        setChipAnimation(chip)
+    }
+
+    private fun setChipAnimation(chip: Chip) {
+        val rand = Random
+        if(rand.nextInt(3) % 2 == 0)
+            chip.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_ltr_anim))
+        else
+            chip.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_rtl_anim))
     }
 }
