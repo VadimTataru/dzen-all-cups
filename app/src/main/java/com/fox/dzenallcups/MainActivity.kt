@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
+import com.fox.dzenallcups.data.model.Category
 import com.fox.dzenallcups.databinding.ActivityMainBinding
 import com.fox.dzenallcups.presentation.MainActivityViewModel
 import com.google.android.material.chip.Chip
@@ -49,11 +50,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun addChip(title: String) {
+    private fun addChip(category: Category) {
         val chip = Chip(this)
         chip.apply {
-            text = title
+            text = category.title
             isCheckable = true
+            isChecked = category.checked
             isCloseIconVisible = false
             isCheckedIconVisible = false
             isChipIconVisible = true
@@ -62,6 +64,10 @@ class MainActivity : AppCompatActivity() {
             setChipBackgroundColorResource(R.color.chip_background_color)
             setTextColor(getColor(R.color.chip_text_color))
             layoutDirection = View.LAYOUT_DIRECTION_RTL
+
+            setOnClickListener {
+                viewModel.setCheckedState(category)
+            }
         }
 
         binding.chipGroup.addView(chip)
