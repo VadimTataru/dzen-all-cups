@@ -10,6 +10,9 @@ class MainActivityViewModel: ViewModel() {
 
     private val categoriesLiveData = MutableLiveData<MutableList<Category>>()
     private val selectedCategoryAmount = MutableLiveData<Int>()
+    private var amount = 0
+
+    var isContinueBtnVisible = false
 
     fun observeCategories() = categoriesLiveData
     fun observeSelectedCategoryAmount() = selectedCategoryAmount
@@ -22,10 +25,16 @@ class MainActivityViewModel: ViewModel() {
 
     fun setCheckedState(category: Category){
         category.checked = !category.checked
-
         if(category.checked)
-            selectedCategoryAmount.value?.inc()
+            amount++
         else
-            selectedCategoryAmount.value?.dec()
+            amount--
+
+        selectedCategoryAmount.value = amount
+        setBtnVisible()
+    }
+
+    private fun setBtnVisible() {
+        isContinueBtnVisible = amount > 0
     }
 }

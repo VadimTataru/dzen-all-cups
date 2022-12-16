@@ -31,19 +31,13 @@ class MainActivity : AppCompatActivity() {
 
         createStartList()
         initButtons()
-        binding.btnContinue.isActivated = false
-
-        binding.btnLatter.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_rtl_anim))
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun initButtons() {
-        viewModel.observeSelectedCategoryAmount().observe(this) {
-            if(it > 0) {
-                binding.btnContinue.isActivated = false
-                binding.btnContinue.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_btu_anim))
-            }
-        }
+        binding.btnContinue.visibility = View.INVISIBLE
+        setContinueButtonAnimation()
+        binding.btnLatter.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_rtl_anim))
 
         binding.btnLatter.setOnClickListener {
             Toast.makeText(this, "Выбрать позже", Toast.LENGTH_SHORT).show()
@@ -51,6 +45,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnContinue.setOnClickListener {
             Toast.makeText(this, "Продолжить", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun setContinueButtonAnimation() {
+        viewModel.observeSelectedCategoryAmount().observe(this) {
+            if(it > 0 && !viewModel.isContinueBtnVisible) {
+                binding.btnContinue.visibility = View.VISIBLE
+                binding.btnContinue.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_btu_anim))
+            } else if(it <= 0 && viewModel.isContinueBtnVisible){
+                binding.btnContinue.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_utb_anim))
+                binding.btnContinue.visibility = View.INVISIBLE
+            }
         }
     }
 
