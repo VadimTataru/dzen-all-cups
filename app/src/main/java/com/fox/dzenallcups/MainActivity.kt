@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.LayoutDirection
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +14,7 @@ import com.fox.dzenallcups.data.model.Category
 import com.fox.dzenallcups.databinding.ActivityMainBinding
 import com.fox.dzenallcups.presentation.MainActivityViewModel
 import com.google.android.material.chip.Chip
+import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -27,6 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         createStartList()
         initButtons()
+
+        binding.btnContinue.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_btu_anim))
+        binding.btnLatter.startAnimation(AnimationUtils.loadAnimation(this, R.anim.button_rtl_anim))
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
