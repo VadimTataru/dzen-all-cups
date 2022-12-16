@@ -22,8 +22,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
+
+        createStartList()
         initButtons()
     }
 
@@ -31,11 +32,19 @@ class MainActivity : AppCompatActivity() {
     private fun initButtons() {
         binding.btnLatter.setOnClickListener {
             Toast.makeText(this, "Выбрать позже", Toast.LENGTH_SHORT).show()
-            addChip("Тестим")
         }
 
         binding.btnContinue.setOnClickListener {
             Toast.makeText(this, "Продолжить", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun createStartList() {
+        viewModel.observeCategories().observe(this) { categories ->
+            for (item in categories) {
+                addChip(item)
+            }
         }
     }
 
